@@ -1,0 +1,46 @@
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: ui
+# spec:
+#   type: LoadBalancer
+#   ports:
+#     - name: http
+#       protocol: TCP
+#       port: 80
+#       targetPort: 3000
+#   selector:
+#     app: frontend
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 3000
+  selector:
+    app: frontend
+
+---
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-frontend
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: frontend
+              servicePort: 80

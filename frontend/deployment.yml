@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bankapp-frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: 456433905815.dkr.ecr.us-east-2.amazonaws.com/frontend:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            cpu: 250m
+            memory: 500Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
