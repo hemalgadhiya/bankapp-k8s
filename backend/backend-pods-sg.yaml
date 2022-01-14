@@ -8,4 +8,4 @@ spec:
       app: backend
   securityGroups:
     groupIds:
-      - sg-0292fcfde1ee3af3d
+      - sg-0404d2c5a7ee0752e

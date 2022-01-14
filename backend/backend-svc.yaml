@@ -1,31 +1,33 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: backend
-  annotations:
-      service.beta.kubernetes.io/aws-load-balancer-type: external
-      # service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
-      service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
-spec:
-  type: LoadBalancer
-  ports:
-    - name: bck
-      protocol: TCP
-      port: 80
-      targetPort: 8080
-  selector:
-    app: backend
-
 # apiVersion: v1
 # kind: Service
 # metadata:
 #   name: backend
+#   annotations:
+#       service.beta.kubernetes.io/aws-load-balancer-type: external
+#       # service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+#       service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
 # spec:
-#   type: NodePort
+#   type: LoadBalancer
 #   ports:
-#     - name: http
+#     - name: bck
 #       protocol: TCP
 #       port: 80
 #       targetPort: 8080
 #   selector:
 #     app: backend
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  annotations:
+    alb.ingress.kubernetes.io/healthcheck-path: /health
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+  selector:
+    app: backend

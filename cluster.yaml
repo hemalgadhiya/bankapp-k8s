@@ -7,7 +7,11 @@ metadata:
 
 managedNodeGroups:
   - name: ng-worker
+    amiFamily: AmazonLinux2
     instanceType: m5.large
     desiredCapacity: 3
     privateNetworking: true
-    
+    minSize: 3
+    maxSize: 8
+iam:
+  withOIDC: true
