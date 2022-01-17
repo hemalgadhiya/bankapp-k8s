@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,6 +19,6 @@ spec:
     spec:
       containers:
       - name: backend-java
-        image: 456433905815.dkr.ecr.us-east-2.amazonaws.com/backend:latest
+        image: 456433905815.dkr.ecr.us-east-2.amazonaws.com/backend:319196d
         ports:
         - containerPort: 8080
