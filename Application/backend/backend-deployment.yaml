@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: backend-java
-        image: 456433905815.dkr.ecr.us-east-2.amazonaws.com/backend:319196d
+        image: 456433905815.dkr.ecr.us-east-2.amazonaws.com/backend:ed196d6
         ports:
         - containerPort: 8080
