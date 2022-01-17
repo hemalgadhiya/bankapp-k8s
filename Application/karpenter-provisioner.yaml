@@ -1,0 +1,10 @@
+apiVersion: karpenter.sh/v1alpha5
+kind: Provisioner
+metadata:
+  name: default
+spec:
+  provider:
+    instanceProfile: KarpenterNodeInstanceProfile-AB3-test-cluster
+    tags:
+      accountingEC2Tag: KarpenterDevEnvironmentEC2
+  ttlSecondsAfterEmpty: 30
