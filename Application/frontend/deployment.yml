@@ -4,6 +4,8 @@ metadata:
   name: bankapp-frontend
   labels:
     app: frontend
+  annotations:
+    flux.weave.works/automated: "true"
 spec:
   replicas: 1
   selector:
