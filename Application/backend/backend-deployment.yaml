@@ -18,13 +18,13 @@ spec:
     spec:
       containers:
       - name: backend-java
-        image: 456433905815.dkr.ecr.us-east-2.amazonaws.com/backend:67f7dea
+        image: 456433905815.dkr.ecr.us-east-2.amazonaws.com/backend:0b09e02
         ports:
         - containerPort: 8080
         resources:
-            limits:
-              cpu: 500m
-              memory: 1024Mi
-            requests:
-              cpu: 500m
-              memory: 1024Mi
+          limits:
+            cpu: 500m
+            memory: 1024Mi
+          requests:
+            cpu: 500m
+            memory: 1024Mi
