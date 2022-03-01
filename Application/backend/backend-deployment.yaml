@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: backend-java
-        image: 456433905815.dkr.ecr.us-west-2.amazonaws.com/bankapp-backend:5eff6a5
+        image: 456433905815.dkr.ecr.us-west-2.amazonaws.com/bankapp-backend:9c62fe8
         ports:
         - containerPort: 8080
         resources:
