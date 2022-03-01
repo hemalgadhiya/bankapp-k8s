@@ -1,17 +1,26 @@
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
-
 metadata:
-  name: AB3-test-cluster
-  region: us-east-2
-
+  name: AB3-prod-cluster
+  region: us-west-2
+  version: "1.21"
+  tags:
+    karpenter.sh/discovery: AB3-prod-cluster
 managedNodeGroups:
-  - name: ng-worker
+  - name: worker-nodes
     amiFamily: AmazonLinux2
-    instanceType: m5.large
+    instanceType: m5.xlarge
     desiredCapacity: 3
     privateNetworking: true
     minSize: 3
     maxSize: 8
+vpc:
+  nat:
+    gateway: HighlyAvailable
 iam:
   withOIDC: true
+addons:
+- name: vpc-cni
+  version: 1.10.2 # optional
+  attachPolicyARNs: #optional
+  - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
