@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: 456433905815.dkr.ecr.us-west-2.amazonaws.com/bankapp-frontend:35b4fe6
+        image: 456433905815.dkr.ecr.us-west-2.amazonaws.com/bankapp-frontend:db6110a
         ports:
         - containerPort: 3000
         resources:
